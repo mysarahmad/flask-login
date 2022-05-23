@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>welcome to sign in</h1>
+<form method='POST' action="">
+    {{ form.hidden_tag() }}
+   
+
+    
+    
+    {{form.username.label()}}
+
+    {% if form.username.errors %}
+        {{ form.username}}
+        {% for error in form.username.errors %}
+            {{ error }}
+        {% endfor %}
+    {% else %}
+    {{ form.username }}
+    {% endif %}
+
+    {{ form.password.label }}
+
+    {% if form.password.errors %}
+        {{ form.username}}
+        {% for error in form.password.errors %}
+            {{ error }}
+        {% endfor %}
+    {% else %}
+    {{ form.password }}
+    {% endif %}
+
+   
+   
+    {{ form.submit }}
+</form>
+<a href="{{url_for('register')}}">Doesn't  have an account? Sign up here</a>
+{% endblock content %}
